@@ -87,6 +87,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#undersampling" class="nav-link">UNDERSAMPLING</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-bs-level="2"><a href="#train-random-forest-model" class="nav-link">Train Random Forest model</a>
               <ul class="nav flex-column">
               </ul>
@@ -172,8 +176,16 @@ index1 &lt;- sample(1:nrow(data1), size = 0.7 * nrow(data1))
 train_data &lt;- data1[index1, ]
 test_data &lt;- data1[-index1, ]
 </code></pre>
+<h2 id="undersampling">UNDERSAMPLING</h2>
+<pre><code>class_counts &lt;- table(train_data$classe)
+min_class_size &lt;- min(class_counts)  # Jumlah data kelas terkecil
+balanced_train &lt;- train_data %&gt;%
+group_by(classe) %&gt;%
+sample_n(min_class_size) %&gt;%
+</code></pre>
+<p>ungroup()</p>
 <h2 id="train-random-forest-model">Train Random Forest model</h2>
-<pre><code>rf_model &lt;- randomForest(classe ~ ., data = train_data, ntree = 500, mtry = 5)
+<pre><code>rf_model &lt;- randomForest(classe ~ ., data = balanced_train, ntree = 200, mtry = 3)
 </code></pre>
 <h2 id="print-model-summery">Print model summery</h2>
 <pre><code>print(rf_model)
@@ -200,10 +212,9 @@ print(paste("Model Accuracy on Test Data:", round(accuracy * 100, 2), "%"))
 </code></pre>
 <h2 id="final-predictions">Final predictions</h2>
 <pre><code>1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
-A  A  A  A  A  A  A  A  A  A  A  A  B  A  A  A  A  B  A  B 
-Levels: A B C D E
+B  A  A  A  A  A  A  B  A  A  B  C  B  A  E  A  A  B  A  B
 </code></pre>
-<p><strong><em>"Model Accuracy on Test Data: 99.97 %"</em></strong></p></div>
+<p><strong><em>"Model Accuracy on Test Data: 99.9 %"</em></strong></p></div>
             </div>
         </div>
 
@@ -285,5 +296,5 @@ Levels: A B C D E
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-03-14 15:55:57.342347+00:00
+Build Date UTC : 2025-03-14 16:37:12.660438+00:00
 -->
