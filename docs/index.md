@@ -43,8 +43,16 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 	train_data <- data1[index1, ]
 	test_data <- data1[-index1, ]
 
+## UNDERSAMPLING
+	class_counts <- table(train_data$classe)
+	min_class_size <- min(class_counts)  # Jumlah data kelas terkecil
+	balanced_train <- train_data %>%
+  	group_by(classe) %>%
+  	sample_n(min_class_size) %>%
+  	ungroup()
+
 ## Train Random Forest model
-	rf_model <- randomForest(classe ~ ., data = train_data, ntree = 500, mtry = 5)
+	rf_model <- randomForest(classe ~ ., data = balanced_train, ntree = 200, mtry = 3)
 
 ## Print model summery
 	print(rf_model)
@@ -71,8 +79,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ## Final predictions
 	1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
-	A  A  A  A  A  A  A  A  A  A  A  A  B  A  A  A  A  B  A  B 
-	Levels: A B C D E
+	B  A  A  A  A  A  A  B  A  A  B  C  B  A  E  A  A  B  A  B
 
-***"Model Accuracy on Test Data: 99.97 %"***
+***"Model Accuracy on Test Data: 99.9 %"***
 	
