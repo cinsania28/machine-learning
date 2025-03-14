@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>cinsania</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/fontawesome.min.css" rel="stylesheet">
+        <link href="css/brands.min.css" rel="stylesheet">
+        <link href="css/solid.min.css" rel="stylesheet">
+        <link href="css/v4-font-face.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">cinsania</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#welcome-to-my-project" class="nav-link">Welcome to my project</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#commands" class="nav-link">Commands</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#import-datasets" class="nav-link">Import datasets</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#ensure-classe-columns-exist-in-data1" class="nav-link">Ensure 'classe' columns exist in data1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#drop-unnecessary-columns" class="nav-link">Drop unnecessary columns</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#remove-columns-with-too-many-missing-values-except-classe" class="nav-link">Remove columns with too many missing values (except classe)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#ensure-consistency-keep-only-common-columns-classe-in-data1" class="nav-link">Ensure consistency: Keep only common columns + classe in data1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#convert-classe-to-factor" class="nav-link">Convert classe to factor</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#split-into-training-and-testing-sets" class="nav-link">Split into training and testing sets</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#train-random-forest-model" class="nav-link">Train Random Forest model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#print-model-summery" class="nav-link">Print model summery</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#predict-on-test-set" class="nav-link">Predict on test set</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#evaluate-accuracy" class="nav-link">Evaluate accuracy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#ensure-test-data-matches-training-data-structure-excluding-classe" class="nav-link">Ensure test data matches training data structure (excluding classe)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#handle-missing-values-in-data2-by-replacing-them-with-column-medians" class="nav-link">Handle missing values in data2 by replacing them with column medians</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#make-final-predictions-on-data2" class="nav-link">Make final predictions on data2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#print-predictions" class="nav-link">Print predictions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#final-predictions" class="nav-link">Final predictions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="welcome-to-my-project">Welcome to my project</h1>
+<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
+<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
+<li><code>mkdocs build</code> - Build the documentation site.</li>
+<li><code>mkdocs -h</code> - Print help message and exit.</li>
+</ul>
+<p><strong><em>Project layout</em></strong></p>
+<h2 id="import-datasets">Import datasets</h2>
+<pre><code>data1 &lt;- read.csv("pml-training.csv", stringsAsFactors = FALSE, na.strings = c("", "NA"))
+data2 &lt;- read.csv("pml-testing.csv", stringsAsFactors = FALSE, na.strings = c("", "NA"))
+</code></pre>
+<h2 id="ensure-classe-columns-exist-in-data1">Ensure 'classe' columns exist in data1</h2>
+<pre><code>if (!"classe" %in% colnames(data1))
+</code></pre>
+<h2 id="drop-unnecessary-columns">Drop unnecessary columns</h2>
+<pre><code>c("user_name", "raw_timestamp_part_1", "raw_timestamp_part_2", "cvtd_timestamp", "new_window")
+data1 &lt;- data1[, !(colnames(data1) %in% drop_cols)]
+data2 &lt;- data2[, !(colnames(data2) %in% drop_cols)]
+</code></pre>
+<h2 id="remove-columns-with-too-many-missing-values-except-classe">Remove columns with too many missing values (except classe)</h2>
+<pre><code>classe_column &lt;- data1$classe  # Preserve classe
+data1 &lt;- data1[, colSums(is.na(data1)) == 0]
+data1$classe &lt;- classe_column  # Restore classe
+data2 &lt;- data2[, colSums(is.na(data2)) == 0]
+</code></pre>
+<h2 id="ensure-consistency-keep-only-common-columns-classe-in-data1">Ensure consistency: Keep only common columns + classe in data1</h2>
+<pre><code>common_cols &lt;- intersect(colnames(data1), colnames(data2))
+data1 &lt;- data1[, c(common_cols, "classe")]
+data2 &lt;- data2[, common_cols]  # data2 doesn't have classe
+</code></pre>
+<h2 id="convert-classe-to-factor">Convert classe to factor</h2>
+<pre><code>data1$classe &lt;- as.factor(data1$classe)
+</code></pre>
+<h2 id="split-into-training-and-testing-sets">Split into training and testing sets</h2>
+<pre><code>set.seed(123)
+index1 &lt;- sample(1:nrow(data1), size = 0.7 * nrow(data1))
+train_data &lt;- data1[index1, ]
+test_data &lt;- data1[-index1, ]
+</code></pre>
+<h2 id="train-random-forest-model">Train Random Forest model</h2>
+<pre><code>rf_model &lt;- randomForest(classe ~ ., data = train_data, ntree = 500, mtry = 5)
+</code></pre>
+<h2 id="print-model-summery">Print model summery</h2>
+<pre><code>print(rf_model)
+</code></pre>
+<h2 id="predict-on-test-set">Predict on test set</h2>
+<pre><code>test_predictions &lt;- predict(rf_model, newdata = test_data)
+</code></pre>
+<h2 id="evaluate-accuracy">Evaluate accuracy</h2>
+<pre><code>accuracy &lt;- mean(test_predictions == test_data$classe)
+print(paste("Model Accuracy on Test Data:", round(accuracy * 100, 2), "%"))
+</code></pre>
+<h2 id="ensure-test-data-matches-training-data-structure-excluding-classe">Ensure test data matches training data structure (excluding classe)</h2>
+<pre><code>data2 &lt;- data2[, colnames(train_data)[colnames(train_data) != "classe"]]
+</code></pre>
+<h2 id="handle-missing-values-in-data2-by-replacing-them-with-column-medians">Handle missing values in data2 by replacing them with column medians</h2>
+<pre><code>for (col in names(data2)) 
+{data2[[col]][is.na(data2[[col]])] &lt;- median(data2[[col]], na.rm = TRUE)}
+</code></pre>
+<h2 id="make-final-predictions-on-data2">Make final predictions on data2</h2>
+<pre><code>final_predictions &lt;- predict(rf_model, newdata = data2)
+</code></pre>
+<h2 id="print-predictions">Print predictions</h2>
+<pre><code>print(final_predictions)
+</code></pre>
+<h2 id="final-predictions">Final predictions</h2>
+<pre><code>1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
+A  A  A  A  A  A  A  A  A  A  A  A  B  A  A  A  A  B  A  B 
+Levels: A B C D E
+</code></pre>
+<p><strong><em>"Model Accuracy on Test Data: 99.97 %"</em></strong></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js"></script>
+        <script src="search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2025-03-14 15:55:57.342347+00:00
+-->
